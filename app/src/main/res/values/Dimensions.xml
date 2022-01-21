@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="textSizeSmall">12sp</dimen>
+    <dimen name="textSizeMedium">16sp</dimen>
+    <dimen name="textSizeLarge">20sp</dimen>
+
+    <dimen name="MarginLarge">64dp</dimen>
+    <dimen name="MarginMediumPlus">32dp</dimen>
+
+    <dimen name="MarginMedium">16dp</dimen>
+    <dimen name="MarginSmall">8dp</dimen>
+
+    <dimen name="ItemSize">120dp</dimen>
+
+
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">E-Commerce App</string>
+    <string name="NewProducts">Yeni Çıkan Ürünler</string>
+    <string name="PopularProducts">En Çok Satan Ürünler</string>
+    <string name="BuyButton">Satın Al</string>
+    <string name="DeleteButton">Sil</string>
+    <string name="basketSum">Sepet Tutarı</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
