@@ -31,7 +31,7 @@ class ProductsFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<List<Products>>, t: Throwable) {
-                    Log.v("FAILED", "Failed: ${t.localizedMessage.toString()}")
+
                 }
 
             })
