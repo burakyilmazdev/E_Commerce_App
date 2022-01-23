@@ -1,4 +1,4 @@
-package com.example.e_commerceapp
+package com.example.e_commerceapp.data.models
 
 data class Products(
     val id: String?,

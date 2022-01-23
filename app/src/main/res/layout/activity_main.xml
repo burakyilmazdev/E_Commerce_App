@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/NewProductsFragment"
-        android:name="com.example.e_commerceapp.ProductsFragment"
+        android:name="com.example.e_commerceapp.ui.ProductsFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/PopularProductsFragment"
-        android:name="com.example.e_commerceapp.PopularFragment"
+        android:name="com.example.e_commerceapp.ui.PopularFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/MarginLarge"
