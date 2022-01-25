@@ -8,7 +8,7 @@ import com.example.e_commerceapp.data.models.Products
 import com.example.e_commerceapp.databinding.NewProductItemBinding
 import com.squareup.picasso.Picasso
 
-class NewProductsAdapter : RecyclerView.Adapter<NewProductsAdapter.ProductListViewHolder>(){
+class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductListViewHolder>(){
 
     private val productList = arrayListOf<Products>()
 

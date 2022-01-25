@@ -20,7 +20,7 @@ class ProductsFragment : Fragment() {
 
     private val productDataSource = ProductDataSource()
     private lateinit var binding : NewProductsFragmentBinding
-    private val newProductsAdapter = NewProductsAdapter()
+    private val newProductsAdapter = ProductsAdapter()
 
 
     @SuppressLint("CheckResult")
