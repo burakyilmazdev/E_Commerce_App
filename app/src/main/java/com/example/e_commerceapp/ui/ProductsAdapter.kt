@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.e_commerceapp.data.models.Products
-import com.example.e_commerceapp.databinding.NewProductItemBinding
+import com.example.e_commerceapp.databinding.ProductItemBinding
 import com.squareup.picasso.Picasso
 
 class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductListViewHolder>(){
@@ -19,7 +19,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductListViewHold
         notifyDataSetChanged()
     }
 
-    class ProductListViewHolder(private val binding : NewProductItemBinding):
+    class ProductListViewHolder(private val binding : ProductItemBinding):
         RecyclerView.ViewHolder(binding.root){
 
             fun bind(productItem : Products){
@@ -32,7 +32,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductListViewHold
         companion object{
 
             fun create(parent:ViewGroup):ProductListViewHolder{
-                val binding = NewProductItemBinding.inflate(LayoutInflater.from(parent.context))
+                val binding = ProductItemBinding.inflate(LayoutInflater.from(parent.context))
                 return ProductListViewHolder(binding)
             }
         }
