@@ -4,32 +4,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.e_commerceapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-     private lateinit var bottomNav : BottomNavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        bottomNav = findViewById(R.id.bottomNav)
-        bottomNav.setOnItemSelectedListener {item->
-            when(item.itemId){
-                R.id.nav_home->{
-
-                }
-                R.id.nav_basket->{
-
-
-                }
-
-
-            }
-            true
-        }
-
+        val navController = findNavController(this,R.id.fragmentContainerView)
+        findViewById<BottomNavigationView>(R.id.bottomNav).setupWithNavController(navController)
     }
 }
