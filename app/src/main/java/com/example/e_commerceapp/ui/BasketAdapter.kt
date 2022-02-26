@@ -1,44 +1,59 @@
 package com.example.e_commerceapp.ui
 
+
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.e_commerceapp.R
 import com.example.e_commerceapp.data.models.Products
 import com.example.e_commerceapp.databinding.BasketItemBinding
 import com.example.e_commerceapp.databinding.ProductItemBinding
 import com.squareup.picasso.Picasso
 
-class BasketAdapter : RecyclerView.Adapter<BasketAdapter.BasketViewHolder>() {
+class BasketAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val basketProductList = arrayListOf<Products>()
+    private var productList = arrayListOf<Products>()
 
-    class BasketViewHolder(val binding: BasketItemBinding):RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(productItem : Products){
-            Picasso.get().load(productItem.url).into(binding.ivProductImage)
-            binding.tvProductName.text = productItem.name
-            binding.tvProductPrice.text = productItem.price
-            binding.executePendingBindings()
+    @SuppressLint("NotifyDataSetChanged")
+    fun setProductList(productList : List<Products>){
+        this.productList.clear()
+        this.productList.addAll(productList)
+        notifyDataSetChanged()
+    }
+
+    class BasketViewHolder(private val basketItemBinding : BasketItemBinding):RecyclerView.ViewHolder(basketItemBinding.root){
+
+        fun bind(basketItem: Products){
+            basketItemBinding.tvProductName.text = basketItem.name
+            basketItemBinding.tvProductPrice.text = basketItem.price
+            Picasso.get().load(basketItem.url).into(basketItemBinding.ivProductImage)
+            basketItemBinding.executePendingBindings()
+
         }
+    }
 
-        companion object{
-            fun create(parent:ViewGroup): BasketAdapter.BasketViewHolder {
-                val binding = BasketItemBinding.inflate(LayoutInflater.from(parent.context))
-                return BasketAdapter.BasketViewHolder(binding)
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return BasketViewHolder(BasketItemBinding.inflate(LayoutInflater.from(parent.context)))
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when(holder){
+            is BasketViewHolder->{
+                holder.bind(productList[position])
             }
         }
-
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasketViewHolder {
-        return BasketViewHolder.create(parent)
-    }
-
-    override fun onBindViewHolder(holder: BasketViewHolder, position: Int) {
-        holder.bind(basketProductList[position])
     }
 
     override fun getItemCount(): Int {
-        return basketProductList.size
+        Log.v("TEST","getItem : ${productList.size}")
+        return productList.size
     }
+
+
 }

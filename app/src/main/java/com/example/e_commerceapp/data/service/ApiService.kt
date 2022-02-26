@@ -1,4 +1,4 @@
-package com.example.e_commerceapp.data.request
+package com.example.e_commerceapp.data.service
 
 import com.example.e_commerceapp.data.models.Products
 import io.reactivex.Single

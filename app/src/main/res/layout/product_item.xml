@@ -39,6 +39,7 @@
             tools:text="33.450 TL" />
 
         <Button
+            android:id="@+id/buyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/BuyButton"

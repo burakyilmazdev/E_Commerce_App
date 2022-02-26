@@ -3,9 +3,8 @@ package com.example.e_commerceapp.data
 import android.annotation.SuppressLint
 import com.example.e_commerceapp.data.models.Products
 import com.example.e_commerceapp.data.models.Resource
-import com.example.e_commerceapp.data.request.ServiceProvider
+import com.example.e_commerceapp.data.service.ServiceProvider
 import io.reactivex.Observable
-import io.reactivex.functions.Consumer
 
 class ProductDataSource {
 
