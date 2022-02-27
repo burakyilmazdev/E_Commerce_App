@@ -10,13 +10,13 @@ import kotlinx.coroutines.launch
 
 class ProductViewModel(application: Application):AndroidViewModel(application) {
 
-    private val allProducts : LiveData<List<Products>>
+    val basketProducts : LiveData<List<Products>>
     private val repository:ProductRepository
 
     init {
         val productDao = ProductDatabase.getDatabase(application).productDao()
         repository = ProductRepository(productDao)
-        allProducts = repository.allProducts
+        basketProducts = repository.allProducts
     }
 
 

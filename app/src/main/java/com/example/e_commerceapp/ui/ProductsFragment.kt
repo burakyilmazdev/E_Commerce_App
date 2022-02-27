@@ -26,26 +26,17 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 
-class ProductsFragment : Fragment(),ProductsAdapter.Listener {
-
+class ProductsFragment : Fragment(), ProductsAdapter.Listener {
 
     private val productDataSource = ProductDataSource()
     private lateinit var binding: ProductsFragmentBinding
     private val newProductsAdapter = ProductsAdapter(this)
     private val popularProductsAdapter = ProductsAdapter(this)
-    private lateinit var productDatabase:ProductDatabase
-    private lateinit var productViewModel:ProductViewModel
-
-
-
+    private lateinit var productViewModel: ProductViewModel
 
     @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
-
 
         productDataSource
             .fetchNewProducts()
@@ -56,12 +47,9 @@ class ProductsFragment : Fragment(),ProductsAdapter.Listener {
                     Status.SUCCESS -> {
                         newProductsAdapter.setProductList(it.data!!)
                         binding.newProductProgressBar.visibility = View.GONE
-
                     }
                     Status.LOADING -> {
                         binding.newProductProgressBar.visibility = View.VISIBLE
-
-
                     }
                 }
             }
@@ -81,12 +69,6 @@ class ProductsFragment : Fragment(),ProductsAdapter.Listener {
                 }
             }
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        productDatabase = ProductDatabase.getDatabase(requireContext())
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

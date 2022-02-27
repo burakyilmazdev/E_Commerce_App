@@ -11,9 +11,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.e_commerceapp.R
 import com.example.e_commerceapp.data.models.Products
 import com.example.e_commerceapp.data.room.ProductDatabase
+import com.example.e_commerceapp.data.room.ProductViewModel
 import com.example.e_commerceapp.databinding.FragmentBasketBinding
 import com.example.e_commerceapp.databinding.ProductsFragmentBinding
 
@@ -21,24 +23,25 @@ import com.example.e_commerceapp.databinding.ProductsFragmentBinding
 class BasketFragment : Fragment(){
     private lateinit var binding: FragmentBasketBinding
     private val basketAdapter = BasketAdapter()
-    private var productList = arrayListOf<Products>()
-    private lateinit var productDatabase: ProductDatabase
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private lateinit var productViewModel: ProductViewModel
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basket, container, false)
         binding.BasketRv.adapter = basketAdapter
+
+
+        productViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        productViewModel.basketProducts.observe(viewLifecycleOwner, Observer {
+            basketAdapter.setProductList(it)
+        })
+
+
+
         return binding.root
     }
 

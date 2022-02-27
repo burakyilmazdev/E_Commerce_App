@@ -15,13 +15,12 @@ import com.squareup.picasso.Picasso
 
 class BasketAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var productList = arrayListOf<Products>()
+    private var productList = emptyList<Products>()
 
 
     @SuppressLint("NotifyDataSetChanged")
     fun setProductList(productList : List<Products>){
-        this.productList.clear()
-        this.productList.addAll(productList)
+        this.productList = productList
         notifyDataSetChanged()
     }
 

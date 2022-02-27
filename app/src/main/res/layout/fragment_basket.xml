@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,6 +32,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Basket_Rv"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/title"
@@ -36,24 +42,20 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:background="@color/BasketSum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="@dimen/MarginLarge"
-            android:layout_marginRight="@dimen/MarginMediumPlus"
-            app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:id="@+id/tv_BasketSumTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/basketSum"
+                android:textColor="@color/purple_700"
                 android:textStyle="bold"
+                android:textSize="@dimen/textSizeLarge"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginTop="@dimen/MarginMedium"
+                android:layout_marginLeft="@dimen/MarginMedium"
+                app:layout_constraintTop_toBottomOf="@id/Basket_Rv">
 
             </TextView>
 
@@ -62,13 +64,17 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/tv_BasketSumTitle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_BasketSumTitle"
+                app:layout_constraintTop_toBottomOf="@id/Basket_Rv"
+                android:layout_marginTop="@dimen/MarginMedium"
+                android:layout_marginRight="@dimen/MarginMedium"
+                android:textSize="@dimen/textSizeLarge"
                 tools:text="55,30 TL">
 
             </TextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
 </layout>
