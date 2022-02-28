@@ -25,10 +25,11 @@ class ProductsAdapter(private val listener:Listener) : RecyclerView.Adapter<Prod
     class ProductListViewHolder(private val binding : ProductItemBinding):
         RecyclerView.ViewHolder(binding.root){
 
-        fun bind(productItem : Products,listener:Listener){
+        @SuppressLint("SetTextI18n")
+        fun bind(productItem : Products, listener:Listener){
             Picasso.get().load(productItem.url).into(binding.ivProductImage)
             binding.tvProductName.text = productItem.name
-            binding.tvProductPrice.text = productItem.price
+            binding.tvProductPrice.text = productItem.price+" TL"
             binding.buyButton.setOnClickListener(View.OnClickListener {
                 listener.onCLickItem(productItem)
             })

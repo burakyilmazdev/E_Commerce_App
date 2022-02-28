@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.e_commerceapp.R
 import com.example.e_commerceapp.data.models.Products
 import com.example.e_commerceapp.databinding.BasketItemBinding
+import com.example.e_commerceapp.databinding.FragmentBasketBinding
 import com.example.e_commerceapp.databinding.ProductItemBinding
 import com.squareup.picasso.Picasso
 
@@ -25,15 +26,16 @@ class BasketAdapter(private val listener: Listener) : RecyclerView.Adapter<Recyc
         notifyDataSetChanged()
     }
 
-    class BasketViewHolder(private val basketItemBinding : BasketItemBinding):RecyclerView.ViewHolder(basketItemBinding.root){
+    class BasketViewHolder(private val basketItemBinding : BasketItemBinding,private val basketFragmentBinding:FragmentBasketBinding)
+        :RecyclerView.ViewHolder(basketItemBinding.root){
 
-        fun bind(basketItem: Products,listener:Listener){
+        @SuppressLint("SetTextI18n")
+        fun bind(basketItem: Products, listener:Listener){
             basketItemBinding.tvProductName.text = basketItem.name
-            basketItemBinding.tvProductPrice.text = basketItem.price
+            basketItemBinding.tvProductPrice.text = basketItem.price+" TL"
             Picasso.get().load(basketItem.url).into(basketItemBinding.ivProductImage)
             basketItemBinding.button.setOnClickListener(View.OnClickListener {
-                listener.onCLickItem(basketItem)
-                Log.v("TEST","DELETE")
+                listener.onCLickItem(basketItem)        //delete
             })
             basketItemBinding.executePendingBindings()
 
@@ -43,7 +45,8 @@ class BasketAdapter(private val listener: Listener) : RecyclerView.Adapter<Recyc
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return BasketViewHolder(BasketItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return BasketViewHolder(BasketItemBinding.inflate(LayoutInflater.from(parent.context)),
+            FragmentBasketBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

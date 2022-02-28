@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 class ProductViewModel(application: Application):AndroidViewModel(application) {
 
     val basketProducts : LiveData<List<Products>>
+    //val basketProductsSum : LiveData<String>
     private val repository:ProductRepository
 
     init {
