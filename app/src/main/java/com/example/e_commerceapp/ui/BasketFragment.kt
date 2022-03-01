@@ -15,7 +15,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.e_commerceapp.R
 import com.example.e_commerceapp.data.models.Products
 import com.example.e_commerceapp.data.room.ProductViewModel
+import com.example.e_commerceapp.databinding.ActivityMainBinding
 import com.example.e_commerceapp.databinding.FragmentBasketBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.math.BigDecimal
 import java.text.DecimalFormat
 
@@ -24,6 +26,9 @@ class BasketFragment : Fragment(), BasketAdapter.Listener {
     private lateinit var binding: FragmentBasketBinding
     private val basketAdapter = BasketAdapter(this)
     private lateinit var productViewModel: ProductViewModel
+    private lateinit var mainBinding: ActivityMainBinding
+    var basketElementNumber = 0
+
 
 
     @SuppressLint("SetTextI18n")
@@ -32,6 +37,7 @@ class BasketFragment : Fragment(), BasketAdapter.Listener {
         savedInstanceState: Bundle?
     ): View? {
 
+        mainBinding = DataBindingUtil.inflate(inflater, R.layout.activity_main, container, false)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basket, container, false)
         binding.BasketRv.adapter = basketAdapter
 
@@ -41,8 +47,6 @@ class BasketFragment : Fragment(), BasketAdapter.Listener {
             var basketSum = 0
             for (element in it) {
                 basketSum += element.price?.toInt()!!
-
-
             }
             binding.basketSum.text = basketSum.toString() + " TL"
             basketAdapter.setProductList(it)
