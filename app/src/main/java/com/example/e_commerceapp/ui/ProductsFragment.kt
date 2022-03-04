@@ -64,7 +64,7 @@ class ProductsFragment : Fragment(), ProductsAdapter.Listener {
                         binding.popularProductsProgressBar.visibility = View.GONE
                     }
                     Status.LOADING -> {
-                        binding.newProductProgressBar.visibility = View.VISIBLE
+                        binding.popularProductsProgressBar.visibility = View.VISIBLE
                     }
                 }
             }

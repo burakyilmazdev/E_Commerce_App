@@ -10,7 +10,8 @@
         android:label="ProductsFragment" >
         <action
             android:id="@+id/action_productsFragment_to_basketFragment"
-            app:destination="@id/basketFragment" />
+            app:destination="@id/basketFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/basketFragment"
@@ -19,6 +20,7 @@
         tools:layout="@layout/fragment_basket" >
         <action
             android:id="@+id/action_basketFragment_to_productsFragment"
-            app:destination="@id/productsFragment" />
+            app:destination="@id/productsFragment"
+            app:enterAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>

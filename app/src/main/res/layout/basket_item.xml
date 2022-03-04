@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="iPhone 16 Pro Max" />
 
-        <TextView
+        zz<TextView
             android:id="@+id/tv_ProductPrice"
             android:layout_width="261dp"
             android:layout_height="wrap_content"
