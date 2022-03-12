@@ -13,8 +13,9 @@ A basic e-commerce app with dummy datas. Tech Stack that has been used in this p
 
 
 
+https://user-images.githubusercontent.com/45144910/157998113-e16a682c-b7a0-44c1-970d-c73b996215df.mp4
 
-https://user-images.githubusercontent.com/45144910/157998035-33685bbc-281f-4aeb-9c10-26e815aef20c.mp4
+
 
 
 
