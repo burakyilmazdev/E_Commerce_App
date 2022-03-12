@@ -11,6 +11,10 @@ class ProductRepository(private val productDao : ProductDao) {
         productDao.addProduct(product)
     }
 
+    suspend fun updateProduct(product: Products){
+        productDao.updateProduct(product)
+    }
+
     suspend fun deleteProduct(product: Products){
         productDao.delete(product)
     }

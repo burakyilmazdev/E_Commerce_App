@@ -46,7 +46,7 @@ class BasketFragment : Fragment(), BasketAdapter.Listener {
 
             var basketSum = 0
             for (element in it) {
-                basketSum += element.price?.toInt()!!
+                basketSum += element.price?.toInt()!!*element.quantity
             }
             binding.basketSum.text = basketSum.toString() + " TL"
             basketAdapter.setProductList(it)
@@ -57,8 +57,14 @@ class BasketFragment : Fragment(), BasketAdapter.Listener {
     }
 
     override fun onCLickItem(productItem: Products) {
-        Toast.makeText(context, "${productItem.name} Sepetten Silindi! ", Toast.LENGTH_SHORT).show()
-        productViewModel.deleteProduct(productItem)
+        if(productItem.quantity>1){
+            productItem.quantity--
+            productViewModel.updateProduct(productItem)
+        }else{
+            productItem.quantity=0
+            productViewModel.deleteProduct(productItem)
+            Toast.makeText(context, "${productItem.name} Sepetten Silindi! ", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

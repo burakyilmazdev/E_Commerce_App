@@ -20,13 +20,14 @@
             android:id="@+id/button"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="28dp"
+            android:layout_marginEnd="28dp"
             android:text="@string/delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
         </Button>
+
 
         <TextView
             android:id="@+id/tv_ProductName"
@@ -36,22 +37,36 @@
             android:layout_marginTop="28dp"
             android:textSize="@dimen/textSizeMedium"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@id/iv_ProductImage"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="iPhone 16 Pro Max" />
 
-        zz<TextView
+        <TextView
             android:id="@+id/tv_ProductPrice"
-            android:layout_width="261dp"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/MarginSmall"
             android:textSize="@dimen/textSizeMedium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.939"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.616"
             tools:text="33.450 TL" />
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="22dp"
+            android:text="Adet: 1"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,4 +12,6 @@ data class Products(
     val name: String?,
     val price: String?,
     val url: String?
-)
+){
+    var quantity : Int = 0
+}

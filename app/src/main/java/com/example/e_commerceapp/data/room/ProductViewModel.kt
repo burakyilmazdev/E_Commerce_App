@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class ProductViewModel(application: Application):AndroidViewModel(application) {
 
     val basketProducts : LiveData<List<Products>>
-    //val basketProductsSum : LiveData<String>
     private val repository:ProductRepository
 
     init {
@@ -26,6 +25,14 @@ class ProductViewModel(application: Application):AndroidViewModel(application) {
             repository.addProduct(product)
         }
     }
+
+    fun updateProduct(product : Products){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateProduct(product)
+        }
+    }
+
+
 
     fun deleteProduct(product: Products){
         viewModelScope.launch(Dispatchers.IO) {

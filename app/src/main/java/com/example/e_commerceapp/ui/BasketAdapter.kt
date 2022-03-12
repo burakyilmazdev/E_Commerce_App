@@ -26,6 +26,7 @@ class BasketAdapter(private val listener: Listener) : RecyclerView.Adapter<Recyc
         notifyDataSetChanged()
     }
 
+
     class BasketViewHolder(private val basketItemBinding : BasketItemBinding,private val basketFragmentBinding:FragmentBasketBinding)
         :RecyclerView.ViewHolder(basketItemBinding.root){
 
@@ -33,6 +34,7 @@ class BasketAdapter(private val listener: Listener) : RecyclerView.Adapter<Recyc
         fun bind(basketItem: Products, listener:Listener){
             basketItemBinding.tvProductName.text = basketItem.name
             basketItemBinding.tvProductPrice.text = basketItem.price+" TL"
+            basketItemBinding.quantity.text = "Adet:"+(basketItem.quantity)
             Picasso.get().load(basketItem.url).into(basketItemBinding.ivProductImage)
             basketItemBinding.button.setOnClickListener(View.OnClickListener {
                 listener.onCLickItem(basketItem)        //delete
